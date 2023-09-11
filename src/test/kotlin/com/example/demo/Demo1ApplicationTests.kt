@@ -13,12 +13,11 @@ class Demo1ApplicationTests {
 
     @Test
     fun `comparing a variable that is inside a mono`() {
-        val a = Mono.just(1)
+        val num = 1
+        val a = Mono.just(num)
         var b = 0
-        a.subscribe { it ->
-            b = it
-        }
-        println("comp = $b")
+        a.subscribe { b = it }
+        assert(b == num)
     }
 
 }
